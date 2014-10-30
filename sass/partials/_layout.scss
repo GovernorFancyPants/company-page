@@ -1,0 +1,9 @@
+body {
+    font-family: lato, serif;
+    background-color: #F7F2EE;
+}
+
+.content {
+    @include outer-container;
+    margin-bottom: 2000px;
+}
