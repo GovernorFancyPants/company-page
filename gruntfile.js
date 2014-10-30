@@ -4,14 +4,18 @@ module.exports = function(grunt) {
 
         pkg: grunt.file.readJSON('package.json'),
 
-        compass: {
+        sass: {
             dist: {
                 options: {
-                    sassDir: 'sass',
-                    cssDir: 'build/css',
-                    require: 'susy',
-                    outputStyle: 'expanded'
-                }
+                    loadPath: require('node-neat').includePaths
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'sass',
+                    src: ['*.scss'],
+                    dest: 'build/css',
+                    ext: '.css'
+                }]
             }
         },
 
@@ -33,7 +37,7 @@ module.exports = function(grunt) {
                     keepSpecialComments: 0
                 },
                 files: {
-                    'build/css/global.css': ['build/css/global.css']
+                    'build/css/global.css': ['build/css/*.css']
                 }
             }
         },
@@ -45,10 +49,10 @@ module.exports = function(grunt) {
         concat: {
             dist: {
                 options: {
-                    //sourceMap: true,
+                    sourceMap: true,
                 },
                 src: [
-                    'js/vendor/*.js',
+                    //'js/vendor/*.js',
                     'js/*.js'
                 ],
                 dest: 'build/js/production.min.js'
@@ -57,9 +61,9 @@ module.exports = function(grunt) {
 
         uglify: {
             options: {
-                sourceMap: true,
-                sourceMapIncludeSources: true,
-                sourceMapIn: 'build/js/production.min.js',
+                //sourceMap: true,
+                //sourceMapIncludeSources: true,
+                //sourceMapIn: 'build/js/production.min.js',
             },
             build: {
                 src: 'build/js/production.min.js',
@@ -91,14 +95,14 @@ module.exports = function(grunt) {
             },
             scripts: {
                 files: ['js/*.js'],
-                tasks: ['concat', 'uglify', 'jshint'],
+                tasks: ['concat', 'jshint'],
                 options: {
                     spawn: false,
                 }
             },
             css: {
-                files: ['css/sass/**/*.scss'],
-                tasks: ['compass', 'autoprefixer', 'cssmin'],
+                files: ['sass/**/*.scss'],
+                tasks: ['sass', 'autoprefixer', 'cssmin'],
                 options: {
                     spawn: false,
                 }
@@ -126,7 +130,7 @@ module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
 
     // Default Task is basically a rebuild
-    grunt.registerTask('default', ['concat', 'uglify', 'compass', 'autoprefixer', 'cssmin', 'imagemin']);
+    grunt.registerTask('default', ['concat', 'uglify', 'sass', 'autoprefixer', 'cssmin', 'imagemin']);
 
     grunt.registerTask('dev', ['connect', 'watch']);
 

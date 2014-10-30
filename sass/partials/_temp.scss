@@ -28,7 +28,7 @@ body {
 	font-size: 1.1em;
 	font-weight: normal;
 	color: #4d4d4d;
-	background: url(../img/temp/bg.png);
+	background: url(../img/bg.png);
 }
 
 img {
@@ -61,18 +61,10 @@ a {
 //--------------------------------------------
 
 .page {
-	padding: -$grid-padding;
-	@include at-breakpoint($medium-columns) {
-		padding: $grid-padding;
-	}
 }
 
 .page-wrapper {
-	padding: $grid-padding;
-	@include at-breakpoint($large-columns) {
-		padding: -$grid-padding;
-	}
-	background: url(../img/temp/transp.png);
+	background: url(../img/transp.png);
 	padding-bottom: 200px;
 	border: 2px solid #f6e7b3;
 }
@@ -121,12 +113,6 @@ header {
 	font-size: 16px !important;
 
 	width: 50%;
-	@include at-breakpoint($medium-columns) {
-		width: 30%;
-	}
-	@include at-breakpoint($large-columns) {
-		width: 25%;
-	}
 
 	position: relative;
 	background: #65a8a6;
