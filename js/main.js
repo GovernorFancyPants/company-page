@@ -1,4 +1,9 @@
-smoothScroll.init();
+smoothScroll.init({
+    speed: 500, // Integer. How fast to complete the scroll in milliseconds
+    easing: 'easeInOutCubic', // Easing pattern to use
+    updateURL: false, // Boolean. Whether or not to update the URL with the anchor hash on scroll
+    offset: document.getElementById('main-nav').offsetHeight, // Integer. How far to offset the scrolling anchor location in pixels
+});
 
 window.addEventListener("scroll", function() {
     fadeHeader(document.getElementById('main-nav'), document.getElementById('header').offsetHeight / 2, document.getElementById('header').offsetHeight);
