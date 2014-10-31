@@ -11,7 +11,7 @@
     <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
 
     <link rel="stylesheet" href="build/css/global.css">
-    <!-- <script src="js/vendor/modernizr-2.7.1.min.js"></script> -->
+    <script src="build/js/modernizr-2.7.1.min.js"></script>
 
     <!-- Google Font -->
     <link href='http://fonts.googleapis.com/css?family=Cabin:400,700' rel='stylesheet' type='text/css'>
@@ -29,6 +29,9 @@
     <div class="page">
         <header id="header">
             <nav id="main-nav">
+                <div id="alt-logo" class="alt-logo">
+                    <a href="#">Alt. logo</a>
+                </div>
                 <ul>
                     <li>
                         <a href="javascript:;" class="menu-item">Showcase</a>
@@ -44,57 +47,20 @@
             <div class="logo">
                 <img src="build/img/logo.png" alt="the logo">
             </div>
+            <a data-scroll href="#content" class="next-section">
+                <span class="arrow"></span>
+            </a>
         </header>
-        <section class="content">
+        <section id="content" class="content">
             Stuff after header
         </section>
-        <!--
-        <div class="page-wrapper">
-
-                <header>
-                    <div class="logo">
-                        <img src="build/img/logo.png" alt="the logo">
-                    </div>
-                    <h3 class="ribbon">
-                        <strong class="ribbon-content">Present</strong>
-                    </h3>
-                    <div class="title-container">
-                        <img src="build/img/gruntbp.png" alt="the logo">
-                        <h3 class="tagline">A boilerplate with Grunt, H5BP, Sass, Autoprefixer, Compass and Susy.</h3>
-                    </div>
-                    <div class="divider"></div>
-                </header>
-
-                <section class="content">
-                    <h3>Prerequisites</h3>
-                    <p>To use this boilerplate you will need to install the following:</p>
-                    <ul class="prereq-list">
-                        <li>Node - <a href="http://nodejs.org/">nodejs.org</a></li>
-                        <li>Grunt - <a href="http://gruntjs.com/">gruntjs.com</a></li>
-                        <li>Compass - <a href="http://compass-style.org/">compass-style.org</a></li>
-                        <li>Susy - <a href="http://susy.oddbird.net/">susy.oddbird.net</a></li>
-
-                    </ul>
-
-                    <h3>How to use this thing</h3>
-                    <p>We recommend using Sublime Text and the <a href="https://github.com/weslly/Nettuts-Fetch">Nettuts Fetch plugin</a> for easy access.</p>
-                    <p>Add this line in your <strong>Fetch:manage-file:</strong></p>
-                    <div class="code">"grunt-boilerplate": "https://github.com/GovernorFancyPants/grunt-boilerplate/zipball/master"</div>
-                    <p>Run <strong>Fetch:package</strong>, choose <strong>grunt-boilerplate</strong> and put it in your folder of choice.</p>
-                    <p>Navigate to the folder using your terminal and run <strong>npm install</strong></p>
-                </section>
-
-                <div class="divider"></div>
-
-                <footer>
-                    <p>Stockholm 2013 | <a href="http://twitter.com/tobiasjohansson">Twitter</a></p>
-                </footer>
-            </div>
- -->
+        <section></section>
+        <section></section>
     </div>
     <!-- .page -->
 
     <script src="build/js/production.min.js"></script>
+    <script src="build/js/smooth-scroll.js"></script>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <!-- <script>

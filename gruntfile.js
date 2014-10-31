@@ -52,7 +52,7 @@ module.exports = function(grunt) {
                     sourceMap: true,
                 },
                 src: [
-                    //'js/vendor/*.js',
+                    'js/vendor/*.js',
                     'js/*.js'
                 ],
                 dest: 'build/js/production.min.js'
@@ -83,6 +83,20 @@ module.exports = function(grunt) {
             }
         },
 
+        copy: {
+            main: {
+                files: [
+                    {
+                        expand: true,
+                        flatten: true,
+                        src: ['js/vendor/modernizr-2.7.1.min.js', 'js/vendor/smooth-scroll.js'],
+                        dest: 'build/js',
+                        filter: 'isFile'
+                    }
+                ]
+            }
+        },
+
         watch: {
             options: {
                 livereload: true,
@@ -94,8 +108,8 @@ module.exports = function(grunt) {
                 }
             },
             scripts: {
-                files: ['js/*.js'],
-                tasks: ['concat', 'jshint'],
+                files: ['js/**/*.js'],
+                tasks: ['concat', 'jshint', 'copy'],
                 options: {
                     spawn: false,
                 }
@@ -130,7 +144,7 @@ module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
 
     // Default Task is basically a rebuild
-    grunt.registerTask('default', ['concat', 'uglify', 'sass', 'autoprefixer', 'cssmin', 'imagemin']);
+    grunt.registerTask('default', ['concat', 'uglify', 'sass', 'autoprefixer', 'cssmin', 'imagemin', 'copy']);
 
     grunt.registerTask('dev', ['connect', 'watch']);
 

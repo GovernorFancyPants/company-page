@@ -13,6 +13,7 @@ nav {
     //background-color: rgba(96, 130, 49, 0);
     text-transform: uppercase;
     font-size: 0.875em;
+    padding: .5em 0;
     ul {
         text-decoration: none;
         list-style-type: none;
@@ -39,6 +40,7 @@ nav {
                 left: 0;
                 height: 3px;
                 width: 100%;
+                transition: background-color .2s ease-in-out;
             }
             &:hover:before {
                 background-color: #F7F2EE;
@@ -47,9 +49,44 @@ nav {
     }
 }
 .logo {
-    margin-top: 5em;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
     padding: 2em;
     background-color: #F7F2EE;
     display: inline-block;
     border-radius: 5px;
+}
+.alt-logo {
+    float: left;
+    padding: 1em;
+    color: #F7F2EE;
+    display: none;
+}
+.next-section {
+    position: absolute;
+    left: 50%;
+    bottom: 2em;
+    transform: translateX(-50%);
+    padding: 1em;
+    &:hover {
+        cursor: pointer;
+    }
+    .arrow {
+        clip-path: polygon(10% 40%, 0 50%, 50% 100%, 100% 50%, 90% 40%, 50% 80%);
+        width: 30px;
+        height: 30px;
+        background-color: #F7F2EE;
+        display: block;
+    }
+    // &:before {
+    //     content: "";
+    //     position: absolute;
+    //     left: 50%;
+    //     bottom: 2em;
+    //     transform: translateX(-50%);
+    //     border-left: 30px solid transparent;
+    //     border-right: 30px solid transparent;
+    //     border-top: 30px solid #F7F2EE;
+    // }
 }
