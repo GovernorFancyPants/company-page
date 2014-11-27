@@ -1,0 +1,86 @@
+header {
+    @include background-image(linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/hero.jpg"));
+    background-size: cover;
+    min-height: 100%;
+    height: 100vh;
+    text-align: center;
+    vertical-align: middle;
+}
+nav {
+    position: fixed;
+    text-align: right;
+    width: 100%;
+    background-color: rgba(225, 137, 13, 0);
+    //background-color: rgba(96, 130, 49, 0);
+    text-transform: uppercase;
+    font-size: 0.875em;
+    padding: .5em 0;
+    ul {
+        text-decoration: none;
+        list-style-type: none;
+        display: inline-block;
+        text-align: left;
+        padding: 1em 0;
+        li {
+            display: inline-block;
+            margin-right: 2em;
+            &:last-child {
+                margin-right: 3em;
+            }
+        }
+        a.menu-item {
+            position: relative;
+            padding: .5em 0 .5em 0;
+            color: #F7F2EE;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color .2s ease-in-out;
+            &:before {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                height: 3px;
+                width: 100%;
+                transition: background-color .2s ease-in-out;
+            }
+            &:hover:before {
+                background-color: #F7F2EE;
+            }
+        }
+    }
+}
+.logo {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 2em;
+    background-color: #F7F2EE;
+    display: inline-block;
+    border-radius: 5px;
+}
+.alt-logo {
+    float: left;
+    padding: 1em;
+    display: none;
+    a {
+        color: #F7F2EE;
+    }
+}
+.next-section {
+    position: absolute;
+    left: 50%;
+    bottom: 4em;
+    transform: translateX(-50%);
+    padding: 1em;
+    &:hover {
+        cursor: pointer;
+    }
+    .arrow {
+        clip-path: polygon(10% 40%, 0 50%, 50% 100%, 100% 50%, 90% 40%, 50% 80%);
+        width: 30px;
+        height: 30px;
+        background-color: #F7F2EE;
+        display: block;
+    }
+}
