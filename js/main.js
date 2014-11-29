@@ -6,11 +6,13 @@ smoothScroll.init({
 });
 
 window.addEventListener("scroll", function() {
-    fadeHeader(document.getElementById('main-nav'), document.getElementById('header').offsetHeight / 2, document.getElementById('header').offsetHeight);
+    fadeInHeader(document.getElementById('main-nav'), document.getElementById('header').offsetHeight / 2, document.getElementById('header').offsetHeight);
+    fadeOutLogo(document.getElementById('main-logo'), 0, document.getElementById('header').offsetHeight / 2);
     slideLogo();
+    parallax();
 });
 
-function fadeHeader(fading_element, start_pos, end_pos) {
+function fadeInHeader(fading_element, start_pos, end_pos) {
     var offset = window.scrollY,
         alpha = 1;
     if (offset <= start_pos) {
@@ -20,6 +22,17 @@ function fadeHeader(fading_element, start_pos, end_pos) {
     }
     a = document.defaultView.getComputedStyle(fading_element, null).getPropertyValue('background-color').match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)$/);
     fading_element.style.backgroundColor = 'rgba(' + a[1] + ',' + a[2] + ',' + a[3] + ',' + alpha + ')';
+}
+
+function fadeOutLogo(fading_element, start_pos, end_pos) {
+    var offset = window.scrollY,
+        alpha = 0;
+    if (offset <= start_pos) {
+        alpha = 1;
+    } else if (offset <= end_pos) {
+        alpha = 1 - Math.pow(offset / end_pos, 2);
+    }
+    fading_element.style.opacity = alpha;
 }
 
 function slideLogo() {
@@ -34,23 +47,15 @@ function slideLogo() {
     }
 }
 
-// window.addEventListener("click", function() {
-//     var el = document.getElementById('alt-logo');
-//     var scroll_to = document.getElementById('content').offsetTop;
-//     window.scrollTo(0, scroll_to);
-//     smoothScroll.animateScroll(
-//         toggle, // Node that toggles the animation. ex. document.querySelector('#toggle')
-//         anchor, // ID of the anchor to scroll to. ex. '#bazinga'
-//         options // Classes and callbacks. Same options as those passed into the init() function.
-//     );
-// });
+function parallax() {
+    translateY3d(document.getElementById('hero'), -(window.scrollY * 0.0315));
+}
 
-// var el = document.getElementById('alt-logo');
-// var scroll_to = document.getElementById('content');
-
-// var toggle = document.querySelector('#next-section');
-// var options = {
-//     speed: 1000,
-//     easing: 'easeOutCubic'
-// };
-// smoothScroll.animateScroll(toggle, '#content', options);
+var translateY3d = function(elm, value) {
+    var translate = 'translate3d(0px,' + value + 'rem, 0px)';
+    elm.style['-webkit-transform'] = translate;
+    elm.style['-moz-transform'] = translate;
+    elm.style['-ms-transform'] = translate;
+    elm.style['-o-transform'] = translate;
+    elm.style.transform = translate;
+};

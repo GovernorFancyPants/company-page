@@ -3,6 +3,12 @@ body {
     background-color: #F7F2EE;
 }
 
+.content-wrapper {
+    position: relative;
+    width: 100%;
+    background-color: #F7F2EE;
+}
+
 .content {
     @include outer-container;
     margin-bottom: 2000px;
