@@ -1,6 +1,4 @@
 header {
-    // @include background-image(linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/hero.jpg"));
-    // background-size: cover;
     min-height: 100%;
     height: 100vh;
     text-align: center;
@@ -11,6 +9,7 @@ header {
     top: 0;
     width: 100%;
     @include background-image(linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/hero.jpg"));
+    background-position: center center;
     background-size: cover;
     min-height: 100%;
     height: 100vh;
@@ -20,42 +19,71 @@ nav {
     text-align: right;
     width: 100%;
     background-color: rgba(42, 151, 169, 0);
-    //background-color: rgba(96, 130, 49, 0);
     text-transform: uppercase;
     font-size: 0.875em;
     padding: .5em 0;
     z-index: 10;
+    @include media($special-mini) {
+        &.menu-active {
+            background-color: rgba(42, 151, 169, .95)!important;
+        }
+    }
     ul {
         text-decoration: none;
         list-style-type: none;
         display: inline-block;
         text-align: left;
-        padding: 1em 0;
-        li {
+        padding: .5em 0;
+        padding-top: 1em;
+        display: none;
+        &.active {
+            display: block;
+        }
+        @include media($medium) {
+            padding: .5em 0;
             display: inline-block;
-            margin-right: 2em;
-            &:last-child {
-                margin-right: 3em;
+            &.active {
+                display: inline-block;
+            }
+        }
+        li {
+            display: block;
+            @include media($medium) {
+                display: inline-block;
+                margin-right: 2em;
+                &:last-child {
+                    margin-right: 3em;
+                }
             }
         }
         a.menu-item {
             position: relative;
-            padding: .5em 0 .5em 0;
+            padding: 1em;
+            display: block;
             color: #F7F2EE;
             text-decoration: none;
-            border-radius: 5px;
+            //border-radius: 5px;
             transition: background-color .2s ease-in-out;
-            &:before {
-                content: "";
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                height: 3px;
-                width: 100%;
-                transition: background-color .2s ease-in-out;
+            &:hover {
+                background-color: darken(rgba(42, 151, 169, .95), 5);
             }
-            &:hover:before {
-                background-color: #F7F2EE;
+            @include media($medium) {
+                padding: .5em 0 .5em 0;
+                &:hover {
+                    background-color: transparent;
+                }
+                &:before {
+                    content: "";
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    height: 3px;
+                    width: 100%;
+                    transition: background-color .2s ease-in-out;
+                }
+                &:hover:before {
+                    background-color: #F7F2EE;
+                }
             }
         }
     }
@@ -73,6 +101,12 @@ nav {
     float: left;
     padding: 1em;
     display: none;
+    &.show {
+        display: block;
+    }
+    .menu-active & {
+        display: block;
+    }
     a {
         color: #F7F2EE;
     }
@@ -92,5 +126,64 @@ nav {
         height: 30px;
         background-color: #F7F2EE;
         display: block;
+    }
+}
+
+.lines-button {
+    display: inline-block;
+    padding: 1.2em .5em;
+    margin: .4em;
+    transition: .3s;
+    cursor: pointer;
+    user-select: none;
+    line-height: 0;
+    @include media($medium) {
+        display: none;
+    }
+    &:hover {
+        opacity: 1;
+    }
+    &:active {
+        transition: 0;
+        background: rgba(0, 0, 0, .1);
+    }
+    .lines {
+        //create middle line
+        @include line;
+        position: relative;
+        /*create the upper and lower lines as pseudo-elements of the middle line*/
+
+        &:before, &:after {
+            @include line;
+            position: absolute;
+            left: 0;
+            content: '';
+            transform-origin: $button-size/14 center;
+        }
+        &:before {
+            top: $button-size/4;
+        }
+        &:after {
+            top: -$button-size/4;
+        }
+    }
+}
+.lines-button.x.close .lines {
+    /*hide the middle line*/
+
+    background: transparent;
+    /*overlay the lines by setting both their top values to 0*/
+
+    &:before, &:after {
+        transform-origin: 50% 50%;
+        top: 0;
+        width: $button-size;
+    }
+    // rotate the lines to form the x shape
+    &:before {
+        transform: rotate3d(0, 0, 1, 45deg);
+    }
+    &:after {
+        transform: rotate3d(0, 0, 1, -45deg);
     }
 }

@@ -37,12 +37,15 @@
                 <div id="alt-logo" class="alt-logo">
                     <a data-scroll href="#header">Alt. logo</a>
                 </div>
-                <ul>
+                <a href="javascript:;" id="mobile-menu-btn" class="lines-button x" role="button" aria-label="Toggle Navigation">
+                  <span class="lines"></span>
+                </a>
+                <ul id="menu-wrapper">
                     <li>
-                        <a data-scroll href="#about" class="menu-item">About us</a>
+                        <a data-scroll href="#about" class="menu-item">The Team</a>
                     </li>
                     <li>
-                        <a data-scroll href="#content" class="menu-item">Showcase</a>
+                        <a data-scroll href="#showcase" class="menu-item">Showcase</a>
                     </li>
                     <li>
                         <a data-scroll href="#giveaways" class="menu-item">Giveaways</a>
@@ -57,25 +60,44 @@
             </a>
         </header>
         <div class="content-wrapper">
-            <section id="about" class="content"></section>
-            <section id="content" class="content">
-                Stuff after header
+            <section id="about" class="about">
+                <div class="content">
+                    <h1>Meet the team</h1>
+                    <div class="info-card">
+                        <img src="http://dummyimage.com/250x300" alt="" />
+                    </div>
+                    <div class="info-card">
+                        <img src="http://dummyimage.com/250x300" alt="" />
+                    </div>
+                    <div class="info-card">
+                        <img src="http://dummyimage.com/250x300" alt="" />
+                    </div>
+                </div>
             </section>
-            <section id="giveaways" class="content">
-                <div class="browsers">
-                    <div class="browser">
-                        <div class="browser-top-bar">
-                            <div class="browser-circle"></div>
-                            <div class="browser-circle"></div>
-                            <div class="browser-circle"></div>
-                        </div>
-                        <div class="browser-content">
-                            Balls
+            <section id="showcase">
+                <div class="content">Stuff after header</div>
+            </section>
+            <section id="giveaways">
+                <div class="content">
+                    <div class="browsers">
+                        <div class="browser">
+                            <div class="browser-top-bar">
+                                <div class="browser-circle"></div>
+                                <div class="browser-circle"></div>
+                                <div class="browser-circle"></div>
+                            </div>
+                            <div class="browser-content">
+                                Balls
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
-            <section id="contact" class="content"></section>
+            <section id="contact">
+                <div class="content">
+
+                </div>
+            </section>
         </div>
         <footer>
             <section>

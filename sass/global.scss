@@ -6,6 +6,8 @@
 @import "../bower_components/neat/app/assets/stylesheets/neat";
 
 // Modules
+@import "modules/variables";
+@import "modules/mixins";
 
 // Vendor
 @import "vendor/normalize";
@@ -15,5 +17,6 @@
 @import "partials/h5bp";
 @import "partials/layout";
 @import "partials/header";
+@import "partials/info-card";
 @import "partials/browsers";
 @import "partials/footer";

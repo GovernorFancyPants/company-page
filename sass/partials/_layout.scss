@@ -11,5 +11,16 @@ body {
 
 .content {
     @include outer-container;
-    margin-bottom: 2000px;
+    padding-top: 4em;
+}
+
+$special-mini: new-breakpoint(max-width 480px);
+$small: new-breakpoint(min-width 480px);
+$medium: new-breakpoint(min-width 480px);
+$large: new-breakpoint(min-width 480px);
+
+.about {
+    .content {
+        text-align: center;
+    }
 }
