@@ -85,15 +85,27 @@ module.exports = function(grunt) {
 
         copy: {
             main: {
-                files: [
-                    {
-                        expand: true,
-                        flatten: true,
-                        src: ['js/vendor/modernizr-2.7.1.min.js', 'js/vendor/smooth-scroll.js'],
-                        dest: 'build/js',
-                        filter: 'isFile'
-                    }
-                ]
+                files: [{
+                    expand: true,
+                    flatten: true,
+                    src: ['js/vendor/modernizr-2.7.1.min.js', 'js/vendor/smooth-scroll.js'],
+                    dest: 'build/js',
+                    filter: 'isFile'
+                }]
+            }
+        },
+
+        font: {
+            all: {
+                // SVG files to read in
+                src: ['svg/*.svg'],
+
+                // Location to output CSS variables
+                destCss: 'sass/partials/_icons.scss',
+
+                // Location to output fonts (expanded via brace expansion)
+                destFonts: 'fonts/icons.{svg,woff,eot,ttf}',
+                fontFamily: 'iconfont',
             }
         },
 
@@ -116,7 +128,7 @@ module.exports = function(grunt) {
             },
             css: {
                 files: ['sass/**/*.scss'],
-                tasks: ['sass', 'autoprefixer'],
+                tasks: ['font', 'sass', 'autoprefixer'],
                 options: {
                     spawn: false,
                 }

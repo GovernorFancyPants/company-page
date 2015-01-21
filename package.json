@@ -12,7 +12,8 @@
     "grunt-autoprefixer": "~1.0.1",
     "grunt-contrib-cssmin": "~0.10.0",
     "grunt-contrib-jshint": "~0.10.0",
-    "grunt-contrib-copy": "~0.7.0"
+    "grunt-contrib-copy": "~0.7.0",
+    "grunt-fontsmith": "~0.9.1"
   },
   "dependencies": {
     "load-grunt-tasks": "~1.0.0"

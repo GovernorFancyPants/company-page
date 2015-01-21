@@ -24,3 +24,8 @@ $large: new-breakpoint(min-width 480px);
         text-align: center;
     }
 }
+
+.icon.close {
+    @include icon($qnet_font_icons_vector_first-01);
+    font-size: 12px;
+}
