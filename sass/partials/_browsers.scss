@@ -14,7 +14,7 @@ $browser-content-background-3: #F0F0F0;
   text-align:center;
   width:100%;
 
-  @include media($large-screen) {
+  @include media($large) {
     padding-top: 2em;
   }
 }
@@ -68,7 +68,7 @@ $browser-content-background-3: #F0F0F0;
   background-color: $browser-content-background-1;
   display: none;
 
-  @include media($large-screen) {
+  @include media($large) {
     display: inline-block;
   }
 
@@ -88,7 +88,7 @@ background: hotpink;
   background-color: $browser-content-background-2;
   width: 90%;
 
-  @include media($large-screen) {
+  @include media($large) {
     @include transform(scale(1.2));
     width: 40%;
   }
@@ -108,7 +108,7 @@ background: hotpink;
   background-color: $browser-content-background-3;
   display: none;
 
-  @include media($large-screen) {
+  @include media($large) {
     display: inline-block;
   }
 
@@ -129,7 +129,7 @@ background: hotpink;
   height: 17em;
   overflow: hidden;
 
-  @include media($large-screen) {
+  @include media($large) {
     height: 18em;
   }
 }
